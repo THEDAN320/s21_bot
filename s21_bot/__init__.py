@@ -17,7 +17,8 @@ main_router = Router()
 
 @main_router.error(ExceptionTypeFilter(UnknownIntent, OutdatedIntent))
 async def handle_context_intent(
-    event: ErrorEvent, dialog_manager: DialogManager
+    event: ErrorEvent,
+    dialog_manager: DialogManager,
 ) -> None:
     error_message = "Что-то пошло не так, бот будет перезапущен."
     if event.update.callback_query:

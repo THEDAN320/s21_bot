@@ -9,7 +9,10 @@ from s21_bot.States.user_states import Auth, Menu
 
 
 async def on_code_input(
-    message: Message, widget: ManagedTextInput, dialog_manager: DialogManager, value: str
+    message: Message,
+    widget: ManagedTextInput,
+    dialog_manager: DialogManager,
+    value: str,
 ) -> None:
     if False:  # todo: Добавить проверку что введенный код валиден
         return
@@ -20,7 +23,10 @@ async def on_code_input(
 
 
 async def on_error_input(
-    message: Message, dialog_: Any, manager: DialogManager, error_: ValueError
+    message: Message,
+    dialog_: Any,
+    manager: DialogManager,
+    error_: ValueError,
 ) -> None:
     await message.answer("Некорректный ввод! Попробуйте снова.")
     await manager.switch_to(state=Auth.get_code, show_mode=ShowMode.DELETE_AND_SEND)
